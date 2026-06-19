@@ -382,6 +382,7 @@ export default component$(() => {
             <img src={ICON_SM} alt="404-AM logo" width={20} height={20} />
             Built because tab-hopping through DevTools is no fun
           </span>
+          <a href="/support/">Support</a>
           <a href={LINKS.github} target="_blank" rel="noreferrer">
             GitHub
           </a>

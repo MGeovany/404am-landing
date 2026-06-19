@@ -18,6 +18,11 @@ export const SITE = {
     type: "image/png",
   },
   github: "https://github.com/MGeovany/404-AM",
+  githubIssues: "https://github.com/MGeovany/404-AM/issues",
+  privacyPolicy:
+    "https://github.com/MGeovany/404-AM/blob/main/PRIVACY.md",
+  marketingUrl: "https://404am.thefndrs.com/",
+  supportUrl: "https://404am.thefndrs.com/support/",
   firefox:
     "https://addons.mozilla.org/en-US/firefox/addon/d99a19ad970049ecb787/",
   version: "0.1.0",

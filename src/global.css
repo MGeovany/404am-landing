@@ -878,6 +878,108 @@ footer {
 
 .footer-inner a:hover { color: var(--fg); }
 
+/* ── Support page ── */
+
+.support-page {
+  flex: 1;
+  padding: 64px 0 80px;
+}
+
+.support-inner {
+  max-width: 720px;
+}
+
+.support-inner .pill {
+  margin-bottom: 14px;
+}
+
+.support-inner h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.support-lead {
+  margin: 0 0 32px;
+  color: var(--fg-muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.support-cards {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.support-card {
+  display: block;
+  padding: 22px 22px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.support-card:hover {
+  border-color: rgba(106, 102, 255, 0.32);
+  transform: translateY(-2px);
+}
+
+.support-card h2 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.support-card p {
+  margin: 0 0 12px;
+  color: var(--fg-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.support-link {
+  color: var(--purple);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.support-faq h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.support-faq-item {
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+
+.support-faq-item:last-child {
+  padding-bottom: 0;
+}
+
+.support-faq dt {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.support-faq dd {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.support-faq dd a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 900px) {
