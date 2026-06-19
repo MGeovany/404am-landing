@@ -13,6 +13,7 @@ export default extendConfig(baseConfig, () => {
     plugins: [
       staticAdapter({
         origin: 'https://404am.thefndrs.com',
+        sitemapOutFile: null,
       }),
     ],
   }

@@ -1,7 +1,8 @@
-import { component$ } from '@builder.io/qwik'
-import { QwikCityProvider, RouterOutlet } from '@builder.io/qwik-city'
-import { RouterHead } from './router-head'
-import './global.css'
+import { component$ } from "@builder.io/qwik";
+import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
+import { RouterHead } from "./router-head";
+import { SITE } from "./lib/seo";
+import "./global.css";
 
 export default component$(() => {
   return (
@@ -9,12 +10,22 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/icons/icon32.png" type="image/png" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="apple-mobile-web-app-title" content={SITE.name} />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body>
+        <a class="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <RouterOutlet />
       </body>
     </QwikCityProvider>
-  )
-})
+  );
+});

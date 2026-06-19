@@ -41,6 +41,24 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: top 0.15s;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
 .page {
   min-height: 100vh;
   display: flex;

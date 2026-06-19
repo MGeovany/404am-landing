@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { AppPreview } from "../components/AppPreview";
+import { createHomeHead } from "../lib/seo";
 
 const LINKS = {
   github: "https://github.com/MGeovany/404-AM",
@@ -155,11 +156,11 @@ const BrowserInstall = ({
 
 export default component$(() => {
   return (
-    <main class="page">
-      <nav class="nav">
+    <main class="page" id="main-content">
+      <nav class="nav" aria-label="Primary">
         <div class="wrap nav-inner">
-          <a class="brand" href="/">
-            <img src={ICON_SM} alt="" width={28} height={28} />
+          <a class="brand" href="/" aria-label="404-AM home">
+            <img src={ICON_SM} alt="404-AM logo" width={28} height={28} />
             404-AM
           </a>
           <div class="nav-links">
@@ -181,7 +182,7 @@ export default component$(() => {
         </div>
       </nav>
 
-      <section class="hero">
+      <header class="hero">
         <div class="wrap hero-grid">
           <div class="hero-copy">
             <p class="hero-wave">Hey developers 👋 </p>
@@ -233,7 +234,7 @@ export default component$(() => {
           </div>
           <AppPreview />
         </div>
-      </section>
+      </header>
 
       <section class="why" id="why">
         <div class="wrap why-grid">
@@ -378,7 +379,7 @@ export default component$(() => {
       <footer>
         <div class="wrap footer-inner">
           <span class="footer-brand">
-            <img src={ICON_SM} alt="" width={20} height={20} />
+            <img src={ICON_SM} alt="404-AM logo" width={20} height={20} />
             Built because tab-hopping through DevTools is no fun
           </span>
           <a href={LINKS.github} target="_blank" rel="noreferrer">
@@ -390,33 +391,4 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "404-AM, Network & Console DevTools",
-  meta: [
-    {
-      name: "description",
-      content:
-        "A friendly DevTools panel to debug fetch/XHR and console logs, with one-click Copy for AI. Free for Firefox, Edge and Opera.",
-    },
-    { property: "og:title", content: "404-AM, Network & Console DevTools" },
-    {
-      property: "og:description",
-      content:
-        "Debug network requests and paste context to your AI in one click.",
-    },
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://404am.thefndrs.com" },
-    {
-      property: "og:image",
-      content: "https://404am.thefndrs.com/icons/icon128.png",
-    },
-  ],
-  links: [
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-    },
-  ],
-};
+export const head: DocumentHead = createHomeHead();
