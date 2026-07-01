@@ -11,7 +11,7 @@ function SearchIcon() {
   )
 }
 
-/** Static mock — same DOM structure & class names as 404-AM/src/Panel.tsx */
+/** Static mock, same DOM structure and class names as the extension panel. */
 export function AppPreview() {
   return (
     <div class="app-preview" aria-hidden="true">
@@ -22,7 +22,7 @@ export function AppPreview() {
               <div class="sidebar-title-row">
                 <div class="brand">
                   <img class="brand-icon" src={ICON_SM} alt="" width={18} height={18} />
-                  <span class="brand-name">404-AM</span>
+                  <span class="brand-name">Nocturne</span>
                 </div>
                 <div class="sidebar-actions">
                   <span class="count">3/3</span>

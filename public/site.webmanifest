@@ -1,6 +1,6 @@
 {
-  "name": "404-AM — Network & Console DevTools",
-  "short_name": "404-AM",
+  "name": "Nocturne | Network & Console DevTools",
+  "short_name": "Nocturne",
   "description": "DevTools panel for fetch/XHR and console logs with one-click Copy for AI.",
   "start_url": "/",
   "scope": "/",

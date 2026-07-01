@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1022" />
+      <stop offset="0.55" stop-color="#080b18" />
+      <stop offset="1" stop-color="#030713" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="42%" r="55%">
+      <stop offset="0" stop-color="#6864ff" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#6864ff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="mark" x1="390" y1="390" x2="540" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c4dff" />
+      <stop offset="0.5" stop-color="#4f7dff" />
+      <stop offset="1" stop-color="#a88cff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect x="80" y="80" width="1040" height="470" rx="36" fill="#111827" fill-opacity="0.56" stroke="#ffffff" stroke-opacity="0.08" />
+  <g>
+    <rect x="350" y="172" width="180" height="180" rx="42" fill="#080d1d" stroke="#ffffff" stroke-opacity="0.08" />
+    <path d="M394 296V228L486 296V228" fill="none" stroke="url(#mark)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="575" y="268" fill="#eef0f6" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-2">Nocturne</text>
+  <text x="575" y="326" fill="#94a0b8" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-size="30" font-weight="500">Network and console context, ready for AI.</text>
+  <text x="575" y="376" fill="#b8b5ff" font-family="Plus Jakarta Sans, Inter, Arial, sans-serif" font-size="24" font-weight="700">Debug requests without the tab hopping.</text>
+</svg>

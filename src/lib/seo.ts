@@ -1,29 +1,30 @@
 import type { DocumentHeadValue } from "@builder.io/qwik-city";
 
 export const SITE = {
-  origin: "https://404am.thefndrs.com",
-  name: "404-AM",
-  title:
-    "404-AM — Network & Console DevTools with Copy for AI",
+  origin: "https://nocturne.thefndrs.com",
+  name: "Nocturne",
+  title: "Nocturne | Network & Console DevTools with Copy for AI",
   description:
-    "Inspect fetch and XHR requests, console logs, headers, and bodies in one DevTools panel. Filter noise and copy AI-ready debug context in one click. Free for Firefox, Edge, and Opera.",
+    "Inspect fetch and XHR requests, console logs, headers, and bodies in one focused DevTools panel. Filter noise and copy AI-ready debug context in one click.",
   tagline: "Debug requests without the headache",
   locale: "en_US",
   themeColor: "#0a0d1a",
   ogImage: {
-    url: "https://404am.thefndrs.com/og-image.png",
+    url: "https://nocturne.thefndrs.com/og-image.png",
     width: 1200,
     height: 630,
-    alt: "404-AM DevTools panel showing network requests, console logs, and Copy for AI",
+    alt: "Nocturne DevTools panel showing network requests, console logs, and Copy for AI",
     type: "image/png",
   },
-  github: "https://github.com/MGeovany/404-AM",
-  githubIssues: "https://github.com/MGeovany/404-AM/issues",
-  privacyPolicy: "https://404am.thefndrs.com/privacy/",
-  marketingUrl: "https://404am.thefndrs.com/",
-  supportUrl: "https://404am.thefndrs.com/support/",
-  firefox:
-    "https://addons.mozilla.org/en-US/firefox/addon/d99a19ad970049ecb787/",
+  github: "https://github.com/MGeovany/nocturne-extension",
+  githubIssues: "https://github.com/MGeovany/nocturne-extension/issues",
+  privacyPolicy: "https://nocturne.thefndrs.com/privacy/",
+  marketingUrl: "https://nocturne.thefndrs.com/",
+  supportUrl: "https://nocturne.thefndrs.com/support/",
+  edge:
+    "https://microsoftedge.microsoft.com/addons/detail/nocturne/moeapnkcablnlgiofkblcjppinifdood",
+  safari:
+    "https://apps.apple.com/us/app/404am-network-devtools/id6782160193?mt=12",
   version: "0.1.0",
 } as const;
 
@@ -62,11 +63,11 @@ export function buildJsonLd(): string {
       name: SITE.name,
       applicationCategory: "DeveloperApplication",
       applicationSubCategory: "Browser Extension",
-      operatingSystem: "Firefox, Microsoft Edge, Opera, Google Chrome, Safari",
+      operatingSystem: "Microsoft Edge, Safari, Firefox, Opera, Google Chrome",
       softwareVersion: SITE.version,
       description: SITE.description,
       url: SITE.origin,
-      downloadUrl: SITE.firefox,
+      downloadUrl: SITE.edge,
       offers: {
         "@type": "Offer",
         price: "0",
@@ -117,7 +118,7 @@ export function createHomeHead(): DocumentHeadValue {
       {
         name: "keywords",
         content:
-          "404-AM, DevTools, browser extension, network inspector, fetch, XHR, console logs, debug API, Copy for AI, developer tools, Firefox addon",
+          "Nocturne, DevTools, browser extension, network inspector, fetch, XHR, console logs, debug API, Copy for AI, developer tools",
       },
       { name: "author", content: "MGeovany" },
       { name: "application-name", content: SITE.name },

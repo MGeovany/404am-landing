@@ -1,5 +1,5 @@
 /**
- * Static mock of the 404-AM DevTools panel — class names match src/styles.css in the extension.
+ * Static mock of the Nocturne DevTools panel. Class names match src/styles.css in the extension.
  * Scoped under .app-preview so landing styles stay isolated.
  */
 .app-preview {

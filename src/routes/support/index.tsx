@@ -9,9 +9,9 @@ export default component$(() => {
     <main class="page" id="main-content">
       <nav class="nav" aria-label="Primary">
         <div class="wrap nav-inner">
-          <a class="brand" href="/" aria-label="404-AM home">
-            <img src={ICON_SM} alt="404-AM logo" width={28} height={28} />
-            404-AM
+          <a class="brand" href="/" aria-label="Nocturne home">
+            <img src={ICON_SM} alt="Nocturne logo" width={28} height={28} />
+            Nocturne
           </a>
           <div class="nav-links">
             <a href="/">Home</a>
@@ -31,7 +31,7 @@ export default component$(() => {
           <span class="pill">Support</span>
           <h1>How can we help?</h1>
           <p class="support-lead">
-            404-AM is open source. The fastest way to report bugs, request
+            Nocturne is open source. The fastest way to report bugs, request
             features, or ask questions is on GitHub.
           </p>
 
@@ -67,7 +67,7 @@ export default component$(() => {
             <a class="support-card" href="/privacy/">
               <h2>Privacy policy</h2>
               <p>
-                404-AM does not collect or transmit user data. Read the full
+                Nocturne does not collect or transmit user data. Read the full
                 privacy policy for details on permissions and local storage.
               </p>
               <span class="support-link">Read privacy policy →</span>
@@ -78,16 +78,16 @@ export default component$(() => {
             <h2>Safari extension</h2>
             <dl>
               <div class="support-faq-item">
-                <dt>How do I enable 404-AM in Safari?</dt>
+                <dt>How do I enable Nocturne in Safari?</dt>
                 <dd>
                   Install the app from the Mac App Store, then open Safari →
-                  Settings → Extensions and turn on 404-AM.
+                  Settings → Extensions and turn on Nocturne.
                 </dd>
               </div>
               <div class="support-faq-item">
                 <dt>Where is the panel?</dt>
                 <dd>
-                  On Safari, tap the floating 404-AM button on the page (usually
+                  On Safari, tap the floating Nocturne button on the page (usually
                   bottom-right) to open the overlay panel.
                 </dd>
               </div>
@@ -96,7 +96,7 @@ export default component$(() => {
                 <dd>
                   See the{" "}
                   <a href="/#features">home page</a> for install links. Chrome
-                  DevTools users open the 404-AM tab inside DevTools.
+                  DevTools users open the Nocturne tab inside DevTools.
                 </dd>
               </div>
             </dl>
@@ -107,8 +107,8 @@ export default component$(() => {
       <footer>
         <div class="wrap footer-inner">
           <span class="footer-brand">
-            <img src={ICON_SM} alt="404-AM logo" width={20} height={20} />
-            404-AM · {SITE.supportUrl.replace(/\/$/, "")}
+            <img src={ICON_SM} alt="Nocturne logo" width={20} height={20} />
+            Nocturne · {SITE.supportUrl.replace(/\/$/, "")}
           </span>
           <a href="/">Back to home</a>
         </div>
@@ -118,21 +118,21 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: `Support — ${SITE.name}`,
+  title: `Support | ${SITE.name}`,
   meta: [
     {
       name: "description",
       content:
-        "Get help with 404-AM. Report bugs, read the privacy policy, and find Safari extension setup instructions.",
+        "Get help with Nocturne. Report bugs, read the privacy policy, and find Safari extension setup instructions.",
     },
     { name: "robots", content: "index, follow" },
     { property: "og:type", content: "website" },
     { property: "og:url", content: SITE.supportUrl },
-    { property: "og:title", content: `Support — ${SITE.name}` },
+    { property: "og:title", content: `Support | ${SITE.name}` },
     {
       property: "og:description",
       content:
-        "Report bugs, request features, and find setup help for the 404-AM browser extension.",
+        "Report bugs, request features, and find setup help for the Nocturne browser extension.",
     },
     { property: "og:image", content: SITE.ogImage.url },
   ],

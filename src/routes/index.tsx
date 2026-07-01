@@ -1,14 +1,12 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { AppPreview } from "../components/AppPreview";
 import { createHomeHead } from "../lib/seo";
 
 const LINKS = {
-  github: "https://github.com/MGeovany/404-AM",
-  firefox:
-    "https://addons.mozilla.org/en-US/firefox/addon/d99a19ad970049ecb787/",
-  edge: "https://microsoftedge.microsoft.com/addons/",
-  opera: "https://addons.opera.com/extensions/",
+  github: "https://github.com/MGeovany/nocturne-extension",
+  edge: "https://microsoftedge.microsoft.com/addons/detail/nocturne/moeapnkcablnlgiofkblcjppinifdood",
+  safari: "https://apps.apple.com/us/app/404am-network-devtools/id6782160193?mt=12",
 };
 
 const FIREFOX_LOGO = "/browsers/firefox.png";
@@ -119,6 +117,85 @@ type BrowserInstallProps = {
   disabled?: boolean;
 };
 
+type BrowserCta = {
+  href: string;
+  logo: string;
+  label: string;
+  sub: string;
+  variant: BrowserInstallProps["variant"];
+};
+
+const DEFAULT_CTA: BrowserCta = {
+  href: LINKS.github,
+  logo: EDGE_LOGO,
+  label: "Download Nocturne from GitHub",
+  sub: "Edge and Safari are available now",
+  variant: "edge",
+};
+
+function browserCta(userAgent: string): BrowserCta {
+  const isEdge = /Edg\//.test(userAgent);
+  const isOpera = /OPR\//.test(userAgent) || /Opera\//.test(userAgent);
+  const isFirefox = /Firefox\//.test(userAgent) || /FxiOS\//.test(userAgent);
+  const isChrome =
+    (/Chrome\//.test(userAgent) || /CriOS\//.test(userAgent) || /Chromium\//.test(userAgent)) &&
+    !isEdge &&
+    !isOpera;
+  const isSafari = /Safari\//.test(userAgent) && !isChrome && !isEdge && !isOpera && !isFirefox;
+
+  if (isEdge) {
+    return {
+      href: LINKS.edge,
+      logo: EDGE_LOGO,
+      label: "Add Nocturne to Microsoft Edge",
+      sub: "Available on Microsoft Edge Add-ons",
+      variant: "edge",
+    };
+  }
+
+  if (isSafari) {
+    return {
+      href: LINKS.safari,
+      logo: SAFARI_LOGO,
+      label: "Get Nocturne for Safari",
+      sub: "Available on the Mac App Store",
+      variant: "safari",
+    };
+  }
+
+  if (isChrome) {
+    return {
+      href: LINKS.github,
+      logo: CHROME_LOGO,
+      label: "Nocturne for Chrome coming soon",
+      sub: "Download from GitHub for now",
+      variant: "chrome",
+    };
+  }
+
+  if (isFirefox) {
+    return {
+      href: LINKS.github,
+      logo: FIREFOX_LOGO,
+      label: "Nocturne for Firefox coming soon",
+      sub: "Download from GitHub for now",
+      variant: "firefox",
+    };
+  }
+
+  if (isOpera) {
+    return {
+      href: LINKS.github,
+      logo: OPERA_LOGO,
+      label: "Nocturne for Opera coming soon",
+      sub: "Download from GitHub for now",
+      variant: "opera",
+    };
+  }
+
+  return DEFAULT_CTA;
+}
+
 const BrowserInstall = ({
   href,
   logo,
@@ -155,13 +232,19 @@ const BrowserInstall = ({
 };
 
 export default component$(() => {
+  const detectedCta = useSignal<BrowserCta>(DEFAULT_CTA);
+
+  useVisibleTask$(() => {
+    detectedCta.value = browserCta(navigator.userAgent);
+  });
+
   return (
     <main class="page" id="main-content">
       <nav class="nav" aria-label="Primary">
         <div class="wrap nav-inner">
-          <a class="brand" href="/" aria-label="404-AM home">
-            <img src={ICON_SM} alt="404-AM logo" width={28} height={28} />
-            404-AM
+          <a class="brand" href="/" aria-label="Nocturne home">
+            <img src={ICON_SM} alt="Nocturne logo" width={28} height={28} />
+            Nocturne
           </a>
           <div class="nav-links">
             <a href="#why">Why</a>
@@ -171,12 +254,12 @@ export default component$(() => {
             </a>
             <a
               class="nav-cta"
-              href={LINKS.firefox}
+              href={detectedCta.value.href}
               target="_blank"
               rel="noreferrer"
             >
-              <img src={FIREFOX_LOGO} alt="" width={18} height={18} />
-              Add to Firefox
+              <img src={detectedCta.value.logo} alt="" width={18} height={18} />
+              {detectedCta.value.label}
             </a>
           </div>
         </div>
@@ -196,39 +279,46 @@ export default component$(() => {
 
             <div class="browser-installs">
               <BrowserInstall
-                href={LINKS.firefox}
-                logo={FIREFOX_LOGO}
-                variant="firefox"
-                label="Add to Firefox"
-                sub="Available on Mozilla Add-ons"
+                href={detectedCta.value.href}
+                logo={detectedCta.value.logo}
+                variant={detectedCta.value.variant}
+                label={detectedCta.value.label}
+                sub={detectedCta.value.sub}
               />
               <BrowserInstall
                 href={LINKS.edge}
                 logo={EDGE_LOGO}
                 variant="edge"
-                label="Add to Edge"
+                label="Add Nocturne to Microsoft Edge"
                 sub="Available on Microsoft Edge Add-ons"
               />
               <BrowserInstall
-                href={LINKS.opera}
-                logo={OPERA_LOGO}
-                variant="opera"
-                label="Add to Opera"
-                sub="Available on Opera Add-ons"
-              />
-              <BrowserInstall
-                logo={CHROME_LOGO}
-                variant="chrome"
-                label="Chrome"
-                sub="Coming soon, blocked in Honduras"
-                disabled
-              />
-              <BrowserInstall
+                href={LINKS.safari}
                 logo={SAFARI_LOGO}
                 variant="safari"
-                label="Safari"
-                sub="Coming soon"
-                disabled
+                label="Get Nocturne for Safari"
+                sub="Available on the Mac App Store"
+              />
+              <BrowserInstall
+                href={LINKS.github}
+                logo={CHROME_LOGO}
+                variant="chrome"
+                label="Nocturne for Chrome coming soon"
+                sub="Download from GitHub for now"
+              />
+              <BrowserInstall
+                href={LINKS.github}
+                logo={FIREFOX_LOGO}
+                variant="firefox"
+                label="Nocturne for Firefox coming soon"
+                sub="Download from GitHub for now"
+              />
+              <BrowserInstall
+                href={LINKS.github}
+                logo={OPERA_LOGO}
+                variant="opera"
+                label="Nocturne for Opera coming soon"
+                sub="Download from GitHub for now"
               />
             </div>
           </div>
@@ -247,7 +337,7 @@ export default component$(() => {
               of that to Claude from memory.
             </p>
             <p>
-              So I built 404-AM: <em>everything in one place</em>, laid out so
+              So I built Nocturne: <em>everything in one place</em>, laid out so
               you can see it clearly, and structured so your AI gets the full
               context of what failed, not half a story.
             </p>
@@ -286,10 +376,10 @@ export default component$(() => {
                 <span class="pain-emoji">✨</span>
               </div>
               <ul class="pain-wins">
-                <li>One panel — network, bodies, console</li>
+                <li>One panel, network, bodies, console</li>
                 <li>Filter the noise, keep what matters</li>
                 <li>
-                  <strong>Copy for AI</strong> — full context, one click
+                  <strong>Copy for AI</strong>, full context, one click
                 </li>
               </ul>
             </div>
@@ -306,7 +396,7 @@ export default component$(() => {
             </span>
             <h2>Copy for AI</h2>
             <p class="copy-ai-lead">
-              Something broke? Hit <strong>Copy for AI</strong> — headers, body,
+              Something broke? Hit <strong>Copy for AI</strong>, headers, body,
               console, secrets masked. One click, ready for your AI.
             </p>
           </div>
@@ -379,7 +469,7 @@ export default component$(() => {
       <footer>
         <div class="wrap footer-inner">
           <span class="footer-brand">
-            <img src={ICON_SM} alt="404-AM logo" width={20} height={20} />
+            <img src={ICON_SM} alt="Nocturne logo" width={20} height={20} />
             Built because tab-hopping through DevTools is no fun
           </span>
           <a href="/support/">Support</a>
