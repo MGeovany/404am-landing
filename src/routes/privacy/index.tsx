@@ -3,7 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { SITE, canonicalUrl } from "../../lib/seo";
 
 const ICON_SM = "/icons/icon32.png";
-const UPDATED = "2026-06-19";
+const UPDATED = "2026-07-01";
 
 export default component$(() => {
   return (
@@ -28,53 +28,109 @@ export default component$(() => {
           <p class="legal-updated">Last updated: {UPDATED}</p>
 
           <p class="legal-lead">
-            Nocturne is a developer tool (browser extension) that helps you inspect
-            and debug network requests and console output on web pages you are
-            working on. This policy applies to all distribution channels:
-            Chrome/Firefox/Edge DevTools builds and the Safari Web Extension.
+            Nocturne is a browser DevTools extension for inspecting network
+            requests, console output, cookies, and site storage for pages you are
+            actively debugging.
           </p>
 
           <section class="legal-section">
-            <h2>Data we collect</h2>
+            <h2>Data collection and use</h2>
             <p>
-              <strong>None.</strong> Nocturne does not collect, transmit, sell, or
-              share any data. There are no analytics, no accounts, no tracking,
-              and no remote servers. Everything runs locally on your device.
+              Nocturne does not sell, rent, or share user data. Nocturne does
+              not use analytics, advertising trackers, or remote telemetry.
+              Nocturne does not transmit captured browsing data, request data,
+              cookies, console logs, or site storage data to any external server.
             </p>
           </section>
 
           <section class="legal-section">
-            <h2>What the extension accesses, and why</h2>
-            <h3>Network requests</h3>
+            <h2>Data handled locally</h2>
             <p>
-              Nocturne reads fetch and XHR traffic from the page you are debugging
-              so it can show method, URL, status, timing, headers, payloads, and
-              response bodies in the panel. This data is displayed on your device
-              only and is never sent to us or any third party.
+              When the DevTools panel is open, Nocturne may display network
+              request URLs, request headers, response headers, request bodies,
+              response bodies, console messages, cookies, localStorage,
+              sessionStorage, IndexedDB names, Cache Storage names, and service
+              worker scopes for the inspected page.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Local storage</h2>
+            <p>
+              Nocturne stores extension preferences locally in the browser, such
+              as filter settings, layout preferences, hidden console message
+              rules, and limited request history. This data is stored using the
+              browser extension local storage API and remains on your device.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Request history limits</h2>
+            <p>
+              Nocturne limits locally persisted request history to reduce stored
+              data. It stores up to 500 requests, individual response bodies only
+              up to a limited size, and removes bodies from stored history if the
+              browser storage quota is reached.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Cookies and site data</h2>
+            <p>
+              Nocturne requests cookie and browsing data permissions so users can
+              inspect and clear cookies and site storage for the page they are
+              debugging. These permissions are used only inside the DevTools
+              workflow. Nocturne does not upload cookies or site data anywhere.
             </p>
             <ul>
               <li>
-                <strong>Chrome / Firefox / Edge</strong>, captured via the
-                DevTools network API while DevTools is open on that tab.
+                <code>storage</code>, remember UI preferences and limited request
+                history locally.
               </li>
               <li>
-                <strong>Safari</strong>, captured by a small script injected
-                into the active page while the extension is enabled, relayed to
-                the overlay panel via local messaging.
+                <code>cookies</code>, inspect and remove cookies for the page you
+                are debugging.
+              </li>
+              <li>
+                <code>browsingData</code>, clear site data when you choose that
+                action in the Nocturne panel.
+              </li>
+              <li>
+                <code>http://*/*</code> and <code>https://*/*</code>, allow the
+                DevTools extension to work on pages you choose to inspect.
               </li>
             </ul>
+          </section>
 
-            <h3>Console output</h3>
+          <section class="legal-section">
+            <h2>Location data</h2>
             <p>
-              Console logs from the page are shown in the integrated Console
-              panel. They are not stored on servers or transmitted off-device.
+              Nocturne does not request or collect device location data. If a
+              website being debugged sends location information inside its own
+              network requests or storage, that information may be visible locally
+              in DevTools like any other request or storage value, but Nocturne
+              does not separately collect, infer, or transmit location data.
             </p>
+          </section>
 
-            <h3>Local preferences</h3>
+          <section class="legal-section">
+            <h2>Data deletion</h2>
             <p>
-              UI settings (filters, sort order, sidebar width, and similar
-              options) are saved locally using browser extension storage on your
-              own device.
+              Users can clear captured request history from the extension UI.
+              Users can also remove extension-local data by clearing the
+              extension's storage or uninstalling the extension. Site cookies and
+              storage can be deleted through Nocturne only when the user chooses
+              those actions.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>Security</h2>
+            <p>
+              Nocturne keeps processed data local to the browser. The extension
+              is designed for developer debugging and only operates on pages the
+              user inspects through browser DevTools. Nocturne runs no remote
+              code and sends no captured data to external services.
             </p>
           </section>
 
@@ -92,28 +148,6 @@ export default component$(() => {
                 before copying.
               </li>
             </ul>
-          </section>
-
-          <section class="legal-section">
-            <h2>Permissions</h2>
-            <ul>
-              <li>
-                <code>storage</code>, remember UI preferences locally.
-              </li>
-              <li>
-                <code>devtools_page</code>, Chrome/Firefox/Edge builds deliver
-                the panel inside DevTools.
-              </li>
-              <li>
-                <code>http://*/*</code> and <code>https://*/*</code> (Safari
-                only), required so the extension can run on web pages you
-                choose to debug and show the overlay panel.
-              </li>
-            </ul>
-            <p>
-              Nocturne runs <strong>no remote code</strong> and sends no captured
-              data to external services.
-            </p>
           </section>
 
           <section class="legal-section">

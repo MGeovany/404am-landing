@@ -25,7 +25,7 @@ export const SITE = {
     "https://microsoftedge.microsoft.com/addons/detail/nocturne/moeapnkcablnlgiofkblcjppinifdood",
   safari:
     "https://apps.apple.com/us/app/404am-network-devtools/id6782160193?mt=12",
-  version: "0.1.0",
+  version: "0.1.1",
 } as const;
 
 export function canonicalUrl(pathname = "/"): string {
